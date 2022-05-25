@@ -1,0 +1,23 @@
+{
+  "app": {
+    "bundleName": "com.blikoon.qrcodescannerlibrary",
+    "vendor": "sourceforge",
+    "version": {
+      "code": 1000000,
+      "name": "1.0.0"
+    }
+  },
+  "deviceConfig": {
+  },
+  "module": {
+    "package": "net.sourceforge.zbar",
+    "deviceType": [
+      "phone"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "library",
+      "moduleType": "har"
+    }
+  }
+}

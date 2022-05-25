@@ -1,0 +1,24 @@
+apply plugin: 'com.huawei.ohos.library'
+ohos {
+    compileSdkVersion 6
+    defaultConfig {
+        compatibleSdkVersion 5
+    }
+    buildTypes {
+        release {
+            proguardOpt {
+                proguardEnabled false
+                rulesFiles 'proguard-rules.pro'
+            }
+        }
+    }
+    
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.13'
+    compile 'com.google.zxing:core:3.3.0'
+    //compile project(":library")
+    implementation('com.gitee.chinasoft_ohos:qrcodescanner_library:1.0.0')
+}

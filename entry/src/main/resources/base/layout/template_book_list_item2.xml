@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DependentLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_content"
+    ohos:width="match_parent"
+    ohos:orientation="vertical"
+    ohos:background_element="$graphic:white_round_corner"
+    ohos:margin="10vp"
+    >
+
+    <Image
+        ohos:id="$+id:image_book"
+        ohos:height="160vp"
+        ohos:width="120vp"
+        ohos:image_src="$media:book"
+        ohos:scale_mode="clip_center"
+        ohos:background_element="#EBFFFF"
+        />
+
+     <Text
+         ohos:id="$+id:book_title"
+         ohos:height="match_content"
+         ohos:width="match_content"
+         ohos:text_size="20vp"
+         ohos:text="数字信号处理"
+         ohos:align_top="$id:image_book"
+         ohos:right_of="$id:image_book"
+         ohos:left_margin="10vp"
+         />
+
+    <Text
+        ohos:id="$+id:book_lend_time"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:text="2021/4/11借阅"
+        ohos:align_left="$id:book_title"
+        ohos:below="$id:book_title"
+        ohos:text_size="16vp"
+        />
+
+    <Text
+        ohos:id="$+id:book_ddl"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:text="3天后到期"
+        ohos:align_left="$id:book_lend_time"
+        ohos:below="$id:book_lend_time"
+        ohos:text_size="16vp"
+        />
+
+    <Button
+        ohos:id="$+id:btn_return"
+        ohos:height="match_content"
+        ohos:width="40vp"
+        ohos:text_size="20vp"
+        ohos:text="归还"
+        ohos:align_bottom="$id:image_book"
+        ohos:right_of="$id:image_book"
+        ohos:left_margin="40vp"
+        ohos:bottom_margin="10vp"
+        />
+    <Button
+        ohos:id="$+id:btn_renew"
+        ohos:height="match_content"
+        ohos:width="40vp"
+        ohos:text_size="20vp"
+        ohos:text="续借"
+        ohos:align_top="$id:btn_return"
+        ohos:right_of="$id:btn_return"
+        ohos:left_margin="40vp"
+        />
+
+</DependentLayout>

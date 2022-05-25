@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DependentLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:orientation="vertical"
+    ohos:background_element="$graphic:white_round_corner"
+    ohos:margin="5vp">
+
+    <Image
+        ohos:id="$+id:image_book"
+        ohos:height="160vp"
+        ohos:width="120vp"
+        ohos:image_src="$media:book"
+        ohos:scale_mode="clip_center"
+        ohos:background_element="#EBFFFF"
+        />
+     <Text
+         ohos:id="$+id:book_title"
+         ohos:height="match_content"
+         ohos:width="match_content"
+         ohos:text_size="20vp"
+         ohos:text="书籍名称"
+         ohos:align_top="$id:image_book"
+         ohos:right_of="$id:image_book"
+         ohos:left_margin="10vp"
+         />
+
+    <Text
+        ohos:id="$+id:book_author"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:text="书籍作者"
+        ohos:align_left="$id:book_title"
+        ohos:below="$id:book_title"
+        ohos:text_size="16vp"
+        />
+    <Text
+        ohos:id="$+id:book_collection"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:text="馆藏5"
+        ohos:align_left="$id:book_author"
+        ohos:below="$id:book_author"
+        ohos:text_size="16vp"
+        />
+    <Text
+        ohos:id="$+id:book_can_borrow"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:text="可借3"
+        ohos:left_margin="10vp"
+        ohos:align_top="$id:book_collection"
+        ohos:right_of="$id:book_collection"
+        ohos:text_size="16vp"
+        />
+</DependentLayout>

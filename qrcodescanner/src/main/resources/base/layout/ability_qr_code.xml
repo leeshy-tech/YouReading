@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DependentLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:id="$+id:root_view"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+
+    <DependentLayout
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:background_element="#303F9F"
+        ohos:bottom_padding="5vp"
+        ohos:top_padding="5vp">
+
+        <Text
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:padding="10vp"
+            ohos:text="QRCodeScanner"
+            ohos:text_color="#ffffff"
+            ohos:text_size="16fp"/>
+
+        <Text
+            ohos:id="$+id:picture"
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:align_parent_right="true"
+            ohos:padding="10vp"
+            ohos:text="Picture"
+            ohos:text_color="#ffffff"
+            ohos:text_size="16fp"/>
+    </DependentLayout>
+
+    <SurfaceProvider
+        ohos:id="$+id:zbar_surfaceprovider"
+        ohos:height="430vp"
+        ohos:width="match_parent"
+        ohos:center_in_parent="true"/>
+
+    <DirectionalLayout
+        ohos:id="$+id:open_light"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:align_parent_bottom="true"
+        ohos:alignment="horizontal_center"
+        ohos:bottom_margin="30vp"
+        ohos:horizontal_center="true"
+        ohos:orientation="vertical">
+
+        <Image
+            ohos:id="$+id:sdt"
+            ohos:height="40vp"
+            ohos:width="match_content"
+            ohos:image_src="$media:sdt"/>
+
+        <Text
+            ohos:id="$+id:sdt_des"
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:align_parent_bottom="true"
+            ohos:bottom_margin="30vp"
+            ohos:text="Open flash light"
+            ohos:text_color="#ffffff"
+            ohos:text_size="14fp"/>
+    </DirectionalLayout>
+</DependentLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="665vp"
+    ohos:width="match_parent"
+    ohos:orientation="vertical"
+    ohos:alignment="horizontal_center"
+    ohos:background_element="$graphic:background_common"
+    >
+
+    <DependentLayout
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:orientation="vertical"
+        ohos:background_element="$graphic:white_round_corner"
+        ohos:margin="10vp">
+
+        <Image
+            ohos:id="$+id:user_photo"
+            ohos:height="120vp"
+            ohos:width="120vp"
+            ohos:image_src="$media:HP_default"
+            ohos:scale_mode="clip_center"
+            ohos:margin="10vp"
+            />
+
+        <Text
+            ohos:id="$+id:user_name"
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:text_size="20vp"
+            ohos:text="用户——李赛"
+            ohos:align_top="$id:user_photo"
+            ohos:right_of="$id:user_photo"
+            ohos:left_margin="10vp"
+            ohos:top_margin="10vp"
+            />
+
+        <Text
+            ohos:id="$+id:user_id"
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:text="2019210774"
+            ohos:align_left="$id:user_name"
+            ohos:below="$id:user_name"
+            ohos:text_size="16vp"
+            />
+
+        <Button
+            ohos:id="$+id:btn_exit_login"
+            ohos:height="match_content"
+            ohos:width="100vp"
+            ohos:text="退出登陆"
+            ohos:text_size="20vp"
+            ohos:align_bottom="$id:user_photo"
+            ohos:right_of="$id:user_photo"
+            ohos:background_element="$graphic:background_search_input"
+            ohos:bottom_margin="10vp"
+            />
+
+    </DependentLayout>
+    <Text
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:text="借阅记录"
+        ohos:text_size="20vp"
+        />
+    <ScrollView
+        ohos:height="match_parent"
+        ohos:width="match_parent"
+        >
+        <DirectionalLayout
+            ohos:height="match_content"
+            ohos:width="match_parent">
+            <TableLayout
+                ohos:id="$+id:record_table"
+                ohos:height="match_content"
+                ohos:width="match_parent">
+
+            </TableLayout>
+        </DirectionalLayout>
+    </ScrollView>
+</DirectionalLayout>

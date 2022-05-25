@@ -1,0 +1,54 @@
+{
+  "app": {
+    "bundleName": "com.blikoon.qrcodescanner",
+    "vendor": "blikoon",
+    "version": {
+      "code": 1,
+      "name": "1.0"
+    },
+    "apiVersion": {
+      "compatible": 5,
+      "target": 5,
+      "releaseType": "Beta1"
+    }
+  },
+  "deviceConfig": {},
+  "module": {
+    "package": "com.blikoon.qrcodescanner",
+    "deviceType": [
+      "phone"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "qrcodescanner",
+      "moduleType": "har"
+    },
+    "abilities": [
+      {
+        "skills": [
+          {
+            "actions": [
+              "action.scan"
+            ]
+          }
+        ],
+        "orientation": "portrait",
+        "name": "com.blikoon.qrcodescanner.QrCodeAbility",
+        "icon": "$media:icon",
+        "description": "$string:qrcodeability_description",
+        "label": "$string:app_name",
+        "type": "page",
+        "launchType": "standard",
+        "metaData": {
+          "customizeData": [
+            {
+              "extra": "",
+              "name": "hwc-theme",
+              "value": "androidhwext:style/Theme.Emui.Light.NoTitleBar"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

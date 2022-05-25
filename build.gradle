@@ -1,0 +1,51 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: 'com.huawei.ohos.app'
+
+ohos {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\13353\\.ohos\\config\\hag\\auto_debug_hag_qrcodescannerlibrary_30086000549958163.p12')
+            storePassword '00000018E85F0FD8C3ABA75B5348149E1CF374ECBC87E3F0C75EA2C3081B2C5496F918F2EAB62DF8'
+            keyAlias = 'debugKey'
+            keyPassword '00000018A2240BFCB72902600172C757C029FF3CCC9ABE160F96C22D155C9EB8CFD052A27A9CA409'
+            signAlg = 'SHA256withECDSA'
+            profile file('C:\\Users\\13353\\.ohos\\config\\hag\\auto_debug_hag_qrcodescannerlibrary_30086000549958163.p7b')
+            certpath file('C:\\Users\\13353\\.ohos\\config\\hag\\auto_debug_hag_qrcodescannerlibrary_30086000549958163.cer')
+        }
+    }
+    compileSdkVersion 5
+    defaultConfig {
+        compatibleSdkVersion 5
+    }
+}
+
+buildscript {
+    repositories {
+        maven {
+            url 'https://repo.huaweicloud.com/repository/maven/'
+        }
+        maven {
+            url 'https://developer.huawei.com/repo/'
+        }
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.huawei.ohos:hap:3.0.5.2'
+        classpath 'com.huawei.ohos:decctest:1.2.7.2'
+    }
+}
+
+allprojects {
+    repositories {
+        maven {
+            url 'https://repo.huaweicloud.com/repository/maven/'
+        }
+        maven {
+            url 'https://developer.huawei.com/repo/'
+        }
+        maven {
+            url 'https://s01.oss.sonatype.org/content/repositories/releases/'
+        }
+        jcenter()
+    }
+}

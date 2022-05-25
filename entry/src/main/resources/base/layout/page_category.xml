@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="665vp"
+    ohos:width="match_parent"
+    ohos:orientation="vertical"
+    ohos:background_element="$graphic:background_common"
+    >
+    <DirectionalLayout
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:orientation="horizontal">
+        <TextField
+            ohos:id="$+id:search_input"
+            ohos:height="30vp"
+            ohos:width="290vp"
+            ohos:hint="搜索"
+            ohos:text_size="20fp"
+            ohos:left_padding="15vp"
+            ohos:background_element="$graphic:background_search_input">
+        </TextField>
+        <Button
+            ohos:id="$+id:search_btn"
+            ohos:height="40vp"
+            ohos:width="70vp"
+            ohos:text="搜索"
+            ohos:text_size="20fp"
+            ohos:background_element="#FFFADA14"
+            />
+    </DirectionalLayout>
+    <!-- 搜索框 -->
+
+    <ScrollView
+        ohos:height="match_parent"
+        ohos:width="match_parent">
+        <DirectionalLayout
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:orientation="horizontal">
+            <!--左侧一级分类-->
+            <TableLayout
+                ohos:id="$+id:category1_table"
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:background_element="#CCB5B5B5">
+            </TableLayout>
+            <!--右侧⼆级分类-->
+            <TableLayout
+                ohos:id="$+id:category2_table"
+                ohos:height="match_content"
+                ohos:width="match_parent"
+                ohos:column_count="2"
+                ohos:alignment_type="align_edges"
+                >
+            </TableLayout>
+        </DirectionalLayout>
+    </ScrollView>
+</DirectionalLayout>

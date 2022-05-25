@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DependentLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:id="$+id:root"
+    ohos:height="match_content"
+    ohos:width="match_content">
+
+    <StackLayout
+        ohos:id="$+id:qr_code_fl_scanner"
+        ohos:height="250vp"
+        ohos:top_margin="180vp"
+        ohos:width="250vp"
+        ohos:horizontal_center="true">
+    </StackLayout>
+
+</DependentLayout>
+
