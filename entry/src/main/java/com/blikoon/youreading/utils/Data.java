@@ -2,7 +2,7 @@ package com.blikoon.youreading.utils;
 
 public class Data {
     static final String IP = "124.223.167.22";
-    static final String Port = "8899";
+    static final String Port = "9900";
     static final String Url_prefix = "http://" + IP + ":" + Port;
     static final String Url_login =  Url_prefix + "/user/login";
     static final String Url_get_info =  Url_prefix + "/user/info";

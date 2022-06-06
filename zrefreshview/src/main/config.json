@@ -1,0 +1,23 @@
+{
+  "app": {
+    "bundleName": "com.yan.zrefreshview",
+    "vendor": "yan",
+    "version": {
+      "code": 1000000,
+      "name": "1.0.0"
+    }
+  },
+  "deviceConfig": {
+  },
+  "module": {
+    "package": "com.yan.zrefreshview",
+    "deviceType": [
+      "phone"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "zrefreshview",
+      "moduleType": "har"
+    }
+  }
+}

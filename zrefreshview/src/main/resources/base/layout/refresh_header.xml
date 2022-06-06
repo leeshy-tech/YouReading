@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DependentLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="50vp"
+    ohos:width="match_parent">
+
+    <Text
+        ohos:id="$+id:pull_to_refresh_text"
+        ohos:height="50vp"
+        ohos:width="match_parent"
+        ohos:align_parent_bottom="true"
+        ohos:horizontal_center="true"
+        ohos:text="下拉刷新"
+        ohos:text_alignment="center"
+        ohos:text_color="#FFFFFF"
+        ohos:text_size="13fp"/>
+
+    <Image
+        ohos:id="$+id:refresh_arrow_image"
+        ohos:height="20vp"
+        ohos:width="20vp"
+        ohos:image_src="$media:refresh_arrow_img"
+        ohos:left_margin="100vp"
+        ohos:vertical_center="true"
+        ohos:scale_mode="inside"
+        ohos:visibility="visible"/>
+
+    <Image
+        ohos:id="$+id:wait_circuit_image"
+        ohos:height="20vp"
+        ohos:width="20vp"
+        ohos:image_src="$media:wait_circuit_img"
+        ohos:left_margin="100vp"
+        ohos:vertical_center="true"
+        ohos:scale_mode="inside"
+        ohos:visibility="invisible"/>
+
+    <Image
+        ohos:id="$+id:refresh_success_image"
+        ohos:height="20vp"
+        ohos:width="20vp"
+        ohos:image_src="$media:refresh_success_img"
+        ohos:left_margin="100vp"
+        ohos:scale_mode="inside"
+        ohos:vertical_center="true"
+        ohos:visibility="invisible"/>
+
+    <Image
+        ohos:id="$+id:refresh_failure_image"
+        ohos:height="20vp"
+        ohos:vertical_center="true"
+        ohos:width="30vp"
+        ohos:image_src="$media:refresh_failure_img"
+        ohos:left_margin="100vp"
+        ohos:scale_mode="inside"
+        ohos:visibility="invisible"/>
+
+</DependentLayout>
+
+

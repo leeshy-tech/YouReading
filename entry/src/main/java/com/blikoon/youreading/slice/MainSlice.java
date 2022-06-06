@@ -4,8 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.blikoon.qrcodescanner.decode.QrManager;
 import com.blikoon.youreading.ResourceTable;
 import com.blikoon.youreading.beans.*;
+import com.blikoon.youreading.provider.BookItemProvider;
 import com.blikoon.youreading.provider.TabPageSliderProvider;
 import com.blikoon.youreading.utils.*;
+import com.yan.zrefreshview.ZRefreshView;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.content.Intent;
 import ohos.agp.components.*;
@@ -32,11 +34,16 @@ public class MainSlice extends AbilitySlice {
     SimpleDateFormat datetime_format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd");
     private static long lastClickTime;
+    private int index = 0;
+    private TaskDispatcher uiTaskDispatcher;
+    private List<Book_info> book_list = new ArrayList<>();
+    BookItemProvider bookItemProvider = null;
 
     @Override
     public void onStart(Intent intent) {
         super.onStart(intent);
         super.setUIContent(ResourceTable.Layout_page_main);
+        uiTaskDispatcher = getUITaskDispatcher();
         Date date_now = null;
         System.out.println("--------------------------------------------MainSlice onStart");
         token =  DataBaseUtil.getValue("token",this);
@@ -130,48 +137,52 @@ public class MainSlice extends AbilitySlice {
                 }
             });
         });
-        //更新推荐书籍
-        TableLayout bookListTable = (TableLayout) findComponentById(ResourceTable.Id_book_list_table);
-        try{
-            //开新线程
-            getGlobalTaskDispatcher(TaskPriority.DEFAULT).syncDispatch(()->{
-                bookListTable.removeAllComponents();
-                //发GET请求
-                String url = Data.getUrl_get_books();
-                String return_json_Body = HttpRequestUtil.sendGetRequest(this,url);
-                System.out.println("return_json_Body:" + return_json_Body);
-                //解析json
-                Books_info books_info = JSON.parseObject(return_json_Body, Books_info.class);
-                System.out.println(books_info.getMsg());
-                List<Book_info> book_info_list = books_info.getBook_info_list();
-                System.out.println(book_info_list);
-                for (Book_info book_info:book_info_list){
-                    DependentLayout template = (DependentLayout)
-                            LayoutScatter.getInstance(this).parse(ResourceTable.Layout_template_book_list_item1,null,false);
-                    Image image = (Image) template.findComponentById(ResourceTable.Id_image_book);
-                    Text author_text = (Text) template.findComponentById(ResourceTable.Id_book_author);
-                    Text title_text = (Text) template.findComponentById(ResourceTable.Id_book_title);
-                    LoadImageUtil.loadImg(this,book_info.getCover_img(),image);
-                    author_text.setText(book_info.getAuthor());
-                    title_text.setText(book_info.getName());
-                    //回到主线程，给item绑定跳转到详情页的逻辑
-                    getUITaskDispatcher().asyncDispatch(new Runnable() {
-                        @Override
-                        public void run() {
-                            bookListTable.addComponent(template);
-                            System.out.println("insert item");
-                            template.setClickedListener(component -> {
-                                Intent intent = new Intent();
-                                intent.setParam("ISBN",book_info.getISBN());
-                                present(new BookDetailSlice(),intent);
-                            });
+        //上拉加载和下拉刷新组件设置
+        ZRefreshView refreshView = (ZRefreshView) findComponentById(ResourceTable.Id_zrefresh_view);
+        refreshView.setOnRefreshListener(new ZRefreshView.RefreshListener() {
+            @Override
+            public void onPullRefreshing() {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
                         }
-                    });
-                }
-            });
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+                        uiTaskDispatcher.asyncDispatch(new Runnable() {
+                            @Override
+                            public void run() {
+                                refreshView.setShowDuration(1200);
+                                recommend_book(true);
+                                refreshView.setHeaderTx("本次更新5条数据");
+                                refreshView.finishRefreshing();
+                            }
+                        });
+                    }
+                }).start();
+            }
+        });
+        refreshView.setLoadMoreListener(() -> {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                uiTaskDispatcher.asyncDispatch(new Runnable() {
+                    @Override
+                    public void run() {
+                        recommend_book(false);
+                        bookItemProvider.notifyDataChanged();
+                        refreshView.finishLoadMore();
+                    }
+                });}
+            }).start();
+        });
+        recommend_book(true);
     }
     //分类页初始化
     public void initCategory(PageSlider pageSlider){
@@ -445,6 +456,45 @@ public class MainSlice extends AbilitySlice {
         }
         lastClickTime = currentClickTime;
         return flag;
+    }
+    //更新推荐书籍
+    private void recommend_book(boolean init){
+        ListContainer listContainer = (ListContainer) findComponentById(ResourceTable.Id_list_container);
+        if (init) {
+            index = 0;
+            book_list.clear();
+        }
+        try{
+            //开新线程
+            getGlobalTaskDispatcher(TaskPriority.DEFAULT).syncDispatch(()->{
+                //发POST请求
+                String url = Data.getUrl_get_books();
+                // {"index":index}
+                String text_json = "{\"index\":\"" + index + "\"}";
+                String return_json_Body = HttpRequestUtil.sendPostRequest(this,url,text_json);
+                System.out.println("return_json_Body:" + return_json_Body);
+                //解析json
+                Books_info books_info = JSON.parseObject(return_json_Body, Books_info.class);
+                System.out.println(books_info.getMsg());
+                List<Book_info> book_info_list = books_info.getBook_info_list();
+                System.out.println(book_info_list);
+                book_list.addAll(book_info_list);
+                if(init){
+                    bookItemProvider = new BookItemProvider(book_list,this);
+                    System.out.println("1234");
+                    uiTaskDispatcher.asyncDispatch(new Runnable() {
+                        @Override
+                        public void run() {
+                            listContainer.setItemProvider(bookItemProvider);
+                        }
+                    });
+                    System.out.println("5678");
+                }
+            });
+            index += 5;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
     /**
      * vp转像素

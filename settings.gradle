@@ -1,1 +1,1 @@
-include ':entry', ':qrcodescanner', ':library'
+include ':entry', ':qrcodescanner', ':library',':zrefreshview'

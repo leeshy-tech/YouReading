@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/entry/entry.iml" filepath="$PROJECT_DIR$/.idea/modules/entry/entry.iml" group="YouReading/entry" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/library.iml" filepath="$PROJECT_DIR$/.idea/modules/library/library.iml" group="YouReading/library" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/qrcodescanner/qrcodescanner.iml" filepath="$PROJECT_DIR$/.idea/modules/qrcodescanner/qrcodescanner.iml" group="YouReading/qrcodescanner" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/zrefreshview/zrefreshview.iml" filepath="$PROJECT_DIR$/.idea/modules/zrefreshview/zrefreshview.iml" group="YouReading/zrefreshview" />
     </modules>
   </component>
 </project>

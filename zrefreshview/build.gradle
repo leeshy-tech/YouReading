@@ -1,8 +1,10 @@
 apply plugin: 'com.huawei.ohos.library'
+//apply from: '../maven_publish.gradle'
+//For instructions on signature configuration, see https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ide_debug_device-0000001053822404#section1112183053510
 ohos {
-    compileSdkVersion 6
+    compileSdkVersion 5
     defaultConfig {
-        compatibleSdkVersion 5
+        compatibleSdkVersion 4
     }
     buildTypes {
         release {
@@ -18,8 +20,4 @@ ohos {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.13'
-    compile 'com.google.zxing:core:3.3.0'
-    //compile project(":library")
-    implementation('com.gitee.chinasoft_ohos:qrcodescanner_library:1.0.0')
-    implementation project(":zrefreshview")
 }

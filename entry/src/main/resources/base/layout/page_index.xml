@@ -1,72 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DirectionalLayout
     xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    xmlns:app="http://schemas.ohos.com/hap/res-auto"
     ohos:height="665vp"
     ohos:width="match_parent"
     ohos:orientation="vertical"
     ohos:background_element="$graphic:background_common"
     >
-    <DirectionalLayout
-        ohos:height="match_content"
-        ohos:width="match_parent"
-        ohos:orientation="horizontal">
-        <!-- 搜索框 -->
-        <TextField
-            ohos:id="$+id:search_input"
-            ohos:height="30vp"
-            ohos:width="290vp"
-            ohos:hint="搜索"
-            ohos:text_size="20fp"
-            ohos:left_padding="15vp"
-            ohos:background_element="$graphic:background_search_input">
-        </TextField>
-        <Button
-            ohos:id="$+id:search_btn"
-            ohos:height="40vp"
-            ohos:width="70vp"
-            ohos:text="搜索"
-            ohos:text_size="20fp"
-            ohos:background_element="#FFFADA14"
-            />
-    </DirectionalLayout>
-    <!-- 可滑动部分 -->
-    <ScrollView
+    <com.yan.zrefreshview.ZRefreshView
+        ohos:id="$+id:zrefresh_view"
         ohos:height="match_parent"
-        ohos:width="match_parent">
+        ohos:width="match_parent"
+        ohos:orientation="vertical"
+        app:AutoLoadMore="true"
+        app:EnableLoadMore="true"
+        app:EnableRefresh="true"
+        app:RefreshBgColor="#000000"
+        app:RefreshTextColor="#ffffff"
+        >
         <DirectionalLayout
             ohos:height="match_content"
             ohos:width="match_parent"
-            ohos:orientation="vertical">
-
-            <!--扫码按钮-->
-            <Image
-                ohos:id="$+id:image_scan"
-                ohos:center_in_parent="true"
-                ohos:height="230vp"
-                ohos:width="match_parent"
-                ohos:image_src="$media:search"
-                ohos:background_element="$graphic:white_round_corner"
-                ohos:top_margin="5vp"
-                ohos:bottom_margin="5vp"
+            ohos:orientation="horizontal">
+            <!-- 搜索框 -->
+            <TextField
+                ohos:id="$+id:search_input"
+                ohos:height="30vp"
+                ohos:width="290vp"
+                ohos:hint="搜索"
+                ohos:text_size="20fp"
+                ohos:left_padding="15vp"
+                ohos:background_element="$graphic:background_search_input">
+            </TextField>
+            <Button
+                ohos:id="$+id:search_btn"
+                ohos:height="40vp"
+                ohos:width="70vp"
+                ohos:text="搜索"
+                ohos:text_size="20fp"
+                ohos:background_element="#FFFADA14"
                 />
-
-            <!--推荐书籍 文本-->
-            <Text
-                ohos:height="match_content"
-                ohos:width="match_parent"
-                ohos:text_size="20vp"
-                ohos:text_alignment="center"
-                ohos:text="推荐书籍"
-                />
-
-            <!--推荐书籍 列表-->
-            <TableLayout
-                ohos:height="match_content"
-                ohos:width="match_parent"
-                ohos:id="$+id:book_list_table"
-                >
-
-            </TableLayout>
         </DirectionalLayout>
-    </ScrollView>
+        <!--扫码按钮-->
+        <Image
+            ohos:id="$+id:image_scan"
+            ohos:center_in_parent="true"
+            ohos:height="230vp"
+            ohos:width="match_parent"
+            ohos:image_src="$media:search"
+            ohos:background_element="$graphic:white_round_corner"
+            ohos:top_margin="5vp"
+            ohos:bottom_margin="5vp"
+            />
+        <!--推荐书籍 文本-->
+        <Text
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:text_size="20vp"
+            ohos:text_alignment="center"
+            ohos:text="推荐书籍"
+            />
+        <!-- 可滑动部分 -->
+        <ListContainer
+            ohos:id="$+id:list_container"
+            ohos:height="match_parent"
+            ohos:width="match_parent">
+
+        </ListContainer>
+    </com.yan.zrefreshview.ZRefreshView>
 </DirectionalLayout>

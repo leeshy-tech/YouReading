@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/entry" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/qrcodescanner" />
+            <option value="$PROJECT_DIR$/zrefreshview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

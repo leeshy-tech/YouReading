@@ -19,7 +19,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.har'])
     testImplementation 'junit:junit:4.13'
     ohosTestImplementation 'com.huawei.ohos.testkit:runner:1.0.0.100'
-    implementation('com.gitee.chinasoft_ohos:qrcodescanner:1.0.1','com.alibaba:fastjson:1.2.47')
+    implementation('com.gitee.chinasoft_ohos:qrcodescanner:1.0.1','com.alibaba:fastjson:1.2.47',"io.gitee.yandeqing:zrefreshview:1.0.2")
     // compile project(":qrcodescanner")
 }
 decc {
