@@ -29,6 +29,8 @@ public class LoginSlice extends AbilitySlice {
             Button btn_login = (Button) findComponentById(ResourceTable.Id_login_btn);
             TextField tf_userid = (TextField) findComponentById(ResourceTable.Id_login_id_textfield);
             TextField tf_userPwd = (TextField) findComponentById(ResourceTable.Id_login_pwd_textfield);
+            tf_userid.setText("");
+            tf_userPwd.setText("");
 
             String url = Data.getUrl_login();
             btn_login.setClickedListener(component -> {
