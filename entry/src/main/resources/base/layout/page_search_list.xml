@@ -28,7 +28,7 @@
             />
     </DirectionalLayout>
     <ScrollView
-        ohos:height="match_content"
+        ohos:height="match_parent"
         ohos:width="match_parent">
         <TableLayout
             ohos:id="$+id:books_table"
