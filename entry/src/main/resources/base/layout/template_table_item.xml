@@ -11,7 +11,7 @@
         ohos:text="馆藏部门"
         ohos:text_alignment="center"
         ohos:text_size="16vp"
-        ohos:background_element="$graphic:background_table_item2"
+        ohos:background_element="#FFFFFFFF"
         />
     <Text
         ohos:id="$+id:text_shelf"
@@ -20,7 +20,7 @@
         ohos:text="架位"
         ohos:text_alignment="center"
         ohos:text_size="16vp"
-        ohos:background_element="$graphic:background_table_item2"
+        ohos:background_element="#FFFFFFFF"
         />
     <Text
         ohos:id="$+id:text_state"
@@ -29,6 +29,6 @@
         ohos:text="状态"
         ohos:text_alignment="center"
         ohos:text_size="16vp"
-        ohos:background_element="$graphic:background_table_item2"
+        ohos:background_element="#FFFFFFFF"
         />
 </DirectionalLayout>

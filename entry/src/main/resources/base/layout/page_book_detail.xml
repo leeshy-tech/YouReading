@@ -58,49 +58,46 @@
         ohos:width="match_content"
         ohos:text="馆藏信息"
         ohos:text_size="20vp"
-        ohos:left_margin="10vp"
+        ohos:start_margin="10vp"
         />
-    <TableLayout
+
+    <DirectionalLayout
         ohos:height="match_content"
         ohos:width="match_parent"
-        ohos:left_margin="15vp"
-        ohos:right_margin="15vp">
-        <DirectionalLayout
+        ohos:orientation="horizontal"
+        ohos:start_margin="15vp"
+        ohos:end_margin="15vp">
+        <Text
             ohos:height="match_content"
-            ohos:width="match_parent"
-            ohos:orientation="horizontal">
-            <Text
-                ohos:height="match_content"
-                ohos:width="110vp"
-                ohos:text="馆藏部门"
-                ohos:text_alignment="center"
-                ohos:text_size="16vp"
-                ohos:background_element="$graphic:background_table_item1"
-                />
-            <Text
-                ohos:height="match_content"
-                ohos:width="110vp"
-                ohos:text="架位"
-                ohos:text_alignment="center"
-                ohos:text_size="16vp"
-                ohos:background_element="$graphic:background_table_item1"
-                />
-            <Text
-                ohos:height="match_content"
-                ohos:width="110vp"
-                ohos:text="状态"
-                ohos:text_alignment="center"
-                ohos:text_size="16vp"
-                ohos:background_element="$graphic:background_table_item1"
-                />
-        </DirectionalLayout>
-    </TableLayout>
+            ohos:width="110vp"
+            ohos:text="馆藏部门"
+            ohos:text_alignment="center"
+            ohos:text_size="16vp"
+            ohos:background_element="#DBDBDB"
+            />
+        <Text
+            ohos:height="match_content"
+            ohos:width="110vp"
+            ohos:text="架位"
+            ohos:text_alignment="center"
+            ohos:text_size="16vp"
+            ohos:background_element="#DBDBDB"
+            />
+        <Text
+            ohos:height="match_content"
+            ohos:width="110vp"
+            ohos:text="状态"
+            ohos:text_alignment="center"
+            ohos:text_size="16vp"
+            ohos:background_element="#DBDBDB"
+            />
+    </DirectionalLayout>
     <TableLayout
         ohos:height="match_content"
         ohos:width="match_parent"
         ohos:id="$+id:store_table"
-        ohos:left_margin="15vp"
-        ohos:right_margin="15vp">
+        ohos:start_margin="15vp"
+        ohos:end_margin="15vp">
 
     </TableLayout>
 
