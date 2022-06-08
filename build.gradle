@@ -3,15 +3,7 @@ apply plugin: 'com.huawei.ohos.app'
 
 ohos {
     signingConfigs {
-        debug {
-            storeFile file('C:\\Users\\13353\\.ohos\\config\\hag\\auto_debug_hag_qrcodescannerlibrary_30086000549958163.p12')
-            storePassword '00000018E85F0FD8C3ABA75B5348149E1CF374ECBC87E3F0C75EA2C3081B2C5496F918F2EAB62DF8'
-            keyAlias = 'debugKey'
-            keyPassword '00000018A2240BFCB72902600172C757C029FF3CCC9ABE160F96C22D155C9EB8CFD052A27A9CA409'
-            signAlg = 'SHA256withECDSA'
-            profile file('C:\\Users\\13353\\.ohos\\config\\hag\\auto_debug_hag_qrcodescannerlibrary_30086000549958163.p7b')
-            certpath file('C:\\Users\\13353\\.ohos\\config\\hag\\auto_debug_hag_qrcodescannerlibrary_30086000549958163.cer')
-        }
+
     }
     compileSdkVersion 5
     defaultConfig {
