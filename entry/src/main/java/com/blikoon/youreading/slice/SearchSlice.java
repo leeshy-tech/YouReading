@@ -21,6 +21,7 @@ public class SearchSlice extends AbilitySlice {
         super.setUIContent(ResourceTable.Layout_page_search_list);
         //绑定搜索逻辑
         TextField search_textfield = (TextField) findComponentById(ResourceTable.Id_search_input);
+        search_textfield.setText("");
         Button search_btn = (Button) findComponentById(ResourceTable.Id_search_btn);
         search_btn.setClickedListener(component -> {
             getGlobalTaskDispatcher(TaskPriority.DEFAULT).asyncDispatch(()->{

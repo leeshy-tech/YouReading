@@ -38,6 +38,7 @@ public class MainSlice extends AbilitySlice {
     private TaskDispatcher uiTaskDispatcher;
     private List<Book_info> book_list = new ArrayList<>();
     BookItemProvider bookItemProvider = null;
+    PageSlider pageSlider ;
 
     @Override
     public void onStart(Intent intent) {
@@ -62,7 +63,7 @@ public class MainSlice extends AbilitySlice {
         layoutFileIds.add(ResourceTable.Layout_page_index);
         layoutFileIds.add(ResourceTable.Layout_page_category);
         layoutFileIds.add(ResourceTable.Layout_page_usercenter);
-        PageSlider pageSlider = (PageSlider) findComponentById(ResourceTable.Id_page_slider);
+        pageSlider = (PageSlider) findComponentById(ResourceTable.Id_page_slider);
         pageSlider.setProvider(new TabPageSliderProvider(layoutFileIds, this));
         //3.TabList与PageSlider联动
         TabList.TabSelectedListener listener = new TabList.TabSelectedListener() {
@@ -412,6 +413,7 @@ public class MainSlice extends AbilitySlice {
                 @Override
                 public void onDestroy() {
                     isFlag = true;
+                    initIndex(pageSlider);
                 }
             });
         }
@@ -444,6 +446,7 @@ public class MainSlice extends AbilitySlice {
             });
             confirm.setClickedListener(v -> {
                 dialog.destroy();
+                initUserCenter(pageSlider);
             });
         }
     }
